@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Bootstrap 4 Example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <!--icons-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<style>
+
+    .side-menu-wrapper { /* style menu wrapper */
+background: rgba(0,0,0,.95);
+padding: 40px 0 0 0px;
+position: fixed; /* Fixed position */
+top: 0;
+right: 0; /* Sidebar initial position. "right" for right positioned menu */
+height: 100%;
+z-index: 2;
+transition: 0.5s; /* CSS transition speed */
+width: 100px;
+font: 20px "Courier New", Courier, monospace;
+box-sizing: border-box;
+}
+.side-menu-wrapper > ul{ /* css ul list style */
+list-style:none;
+padding:0;
+margin:0;
+overflow-y: auto; /* enable scroll for menu items */
+height:95%;
+}
+.side-menu-wrapper > ul > li > a { /* links */
+display: block;
+border-bottom: 1px solid #131313;
+padding: 6px 4px 6px 4px;
+color: #989898;
+transition: 0.3s;
+text-decoration: none;
+}
+    .side-menu-wrapper > ul > li > a:hover { /* links */
+background-color:rgba(152, 152, 152, 0.74);
+}
+.side-menu-wrapper > a.menu-close { /* close button */
+padding: 8px 0 4px 23px;
+color: #6B6B6B;
+display: block;
+margin: -30px 0 -10px -20px;
+font-size: 35px;
+text-decoration: none;
+}
+
+.menu-overlay { /* overlay */
+height: 100%;
+width: 0;
+position: fixed;
+z-index: 1;
+top: 0;
+left: 0;
+background-color: rgba(0,0,0,.7);
+overflow-y: auto;
+overflow-x: hidden;
+text-align: center;
+opacity: 0;
+transition: opacity 1s;
+}
+</style>
+
+<body>
+    <ul class="nav justify-content-end bg-dark text-dark">
+        <li class="nav-item">
+            <a class="nav-link" href="#"><span class="fa fa-bell"></span></a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#"><span class="fa fa-envelope"></span></a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#"><span class="fa fa-cog"></span></a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#"><i class="material-icons">palette</i></a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#"><span class="fa fa-user-circle-o"></span></a>
+        </li>
+    </ul>
+    <div class="menu-overlay"></div>
+    <nav class="navbar navbar-expand-md bg-primary navbar-dark">
+        <!-- Brand -->
+        <a class="navbar-brand menu-open" href="#"><span class="fa fa-th"></span></a>
+        <div class="side-menu-wrapper">
+            <div class="d-flex justify-content-center mb-3">
+                <a href="#" class="menu-close p-2"><span class="fa fa-th"></span></a>
+            </div>
+            <ul>
+                <li><a class="btn text-light btn-lg"><span class="fa fa-archive"></span></a></li>
+                <li><a class="btn text-light btn-lg"><span class="fa fa-area-chart"></span></a></li>
+                <li><a class="btn text-light btn-lg"><span class="fa fa-calendar"></span></a></li>
+                <li><a class="btn text-light btn-lg"><span class="fa fa-camera"></span></a></li>
+                <li><a class="btn text-light btn-lg"><span class="fa fa-calculator"></span></a></li>
+                <li><a class="btn text-light btn-lg"><span class="fa fa-shopping-bag"></span></a></li>
+            </ul>
+        </div>
+        <!-- Toggler/collapsibe Button -->
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Navbar links -->
+        <div class="collapse navbar-collapse" id="collapsibleNavbar">
+            <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Link</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Link</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Link</a>
+                </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-2">
+                <div class="input-group mr-sm-2">
+                    <input type="text" class="form-control" placeholder="Seach">
+                    <div class="input-group-append">
+                        <button class="btn btn-primary" type="button"><span class="fa fa-search"></span></button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </nav>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+    <script>
+        var slide_wrp = ".side-menu-wrapper"; //Menu Wrapper
+        var open_button = ".menu-open"; //Menu Open Button
+        var close_button = ".menu-close"; //Menu Close Button
+        var overlay = ".menu-overlay"; //Overlay
+
+        $(slide_wrp).hide().css({
+            "left": -$(slide_wrp).outerWidth() + 'px'
+        }).delay(50).queue(function() {
+            $(slide_wrp).show()
+        });
+
+        $(open_button).click(function(e) {
+            e.preventDefault();
+            $(slide_wrp).css({
+                "left": "0px"
+            });
+            setTimeout(function() {
+                $(slide_wrp).addClass('active');
+            }, 50);
+            $(overlay).css({
+                "opacity": "1",
+                "width": "100%"
+            });
+        });
+
+        $(close_button).click(function(e) {
+            e.preventDefault();
+            $(slide_wrp).css({
+                "left": -$(slide_wrp).outerWidth() + 'px'
+            });
+            setTimeout(function() {
+                $(slide_wrp).removeClass('active');
+            }, 50);
+            $(overlay).css({
+                "opacity": "0",
+                "width": "0"
+            });
+        });
+
+        $(document).on('click', function(e) {
+            if (!e.target.closest(slide_wrp) && $(slide_wrp).hasClass("active")) {
+                $(slide_wrp).css({
+                    "left": -$(slide_wrp).outerWidth() + 'px'
+                }).removeClass('active');
+                $(overlay).css({
+                    "opacity": "0",
+                    "width": "0"
+                });
+            }
+        });
+    </script>
+</body>
+
+</html>
