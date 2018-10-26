@@ -8,7 +8,7 @@
     right: 0;
     /* Sidebar initial position. "right" for right positioned menu */
     height: 100%;
-    z-index: 2;
+    z-index: 999;
     transition: 0.5s;
     /* CSS transition speed */
     width: 100px;
@@ -72,4 +72,7 @@
     height: 30px;
     border-radius: 50%;
     object-fit: cover;
+}
+.bg-whiter{
+    background-color: #ffffff;
 }
