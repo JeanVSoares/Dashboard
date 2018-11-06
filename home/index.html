@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <title>Bootstrap 4 Example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+
+    <!--My style-->
+    <link rel="stylesheet" href="../_css/style.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
+    <!--icons-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<style>
+    div.dataTables_wrapper {
+        width: 80%;
+        margin: 0 auto;
+    }
+</style>
+
+<body class="bg-light">
+    <ul class="nav justify-content-end bg-dark text-dark">
+        <li class="nav-item">
+            <a class="nav-link" href="#" data-toggle="tooltip" data-placement="bottom" title="Notificação"><span class="fa fa-bell"></span></a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#" data-toggle="tooltip" data-placement="bottom" title="Mensagem"><span class="fa fa-envelope"></span></a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#" data-toggle="tooltip" data-placement="bottom" title="Configuração de Página"><span class="	fas fa-palette"></span></a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#" data-toggle="tooltip" data-placement="bottom" title="Perfil"><img src="../_img/mulherBonita.jpg" alt="Perfil" class="img"></a>
+        </li>
+    </ul>
+    <div class="menu-overlay"></div>
+    <nav class="navbar navbar-expand-md bg-primary navbar-dark">
+        <!-- Brand -->
+        <a class="navbar-brand menu-open" href="#" title="Abrir módulos"><span class="fa fa-th"></span></a>
+        <div class="side-menu-wrapper">
+            <div class="d-flex justify-content-center mb-3">
+                <a href="#" class="menu-close p-2" title="Fechar Módulos"><span class="fa fa-th"></span></a>
+            </div>
+            <ul>
+                <li><a class="btn text-light btn-lg" data-toggle="tooltip" data-placement="bottom" title="Home"><span class="fas fa-home"></span></a></li>
+                <li><a class="btn text-light btn-lg" data-toggle="tooltip" data-placement="bottom" title="Cliente"><span class="fas fa-user-check"></span></a></li>
+                <li><a class="btn text-light btn-lg" data-toggle="tooltip" data-placement="bottom" title="Fornecedor"><span class="fas fa-truck"></span></a></li>
+                <li><a class="btn text-light btn-lg" data-toggle="tooltip" data-placement="bottom" title="Funcionário"><span class="fas fa-users"></span></a></li>
+                <li><a class="btn text-light btn-lg" data-toggle="tooltip" data-placement="bottom" title="Caixa"><span class="fas fa-box-open"></span></a></li>
+                <li><a class="btn text-light btn-lg" data-toggle="tooltip" data-placement="bottom" title="Contas a Pagar"><span class="far fa-calendar-minus"></span></a></li>
+                <li><a class="btn text-light btn-lg" data-toggle="tooltip" data-placement="bottom" title="Contas a Receber"><span class="far fa-calendar-plus"></span></a></li>
+                <li><a class="btn text-light btn-lg" data-toggle="tooltip" data-placement="bottom" title="Dashboard"><span class="far fa-chart-bar"></span></a></li>
+            </ul>
+        </div>
+        <!-- Toggler/collapsibe Button -->
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Navbar links -->
+        <div class="collapse navbar-collapse" id="collapsibleNavbar">
+            <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Link</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Link</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Link</a>
+                </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-2">
+                <div class="input-group mr-sm-2">
+                    <input type="text" class="form-control" placeholder="Seach">
+                    <div class="input-group-append">
+                        <button class="btn btn-primary" type="button"><span class="fa fa-search"></span></button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </nav>
+    <!--Body-->
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 ">
+                <div class="p-3 text-primary">
+                    <legend>Dashboard</legend>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="mt-2 d-flex justify-content-end">
+                    <div class="p-2">
+                        <button class="btn bg-success btn-md text-light rounded-circle" data-toggle="tooltip" data-placement="bottom" title="Exportar Excel"><span class="far fa-file-excel"></span></button>
+                    </div>
+                    <div class="p-2"><button class="btn bg-warning btn-md text-light rounded-circle" data-toggle="tooltip" data-placement="bottom" title="Exportar PDF"><span class="far fa-file-pdf"></span></button></div>
+                    <div class="p-2"><button class="btn bg-primary btn-sm text-light" data-toggle="tooltip" data-placement="bottom" title="Configutação de Relatório"><span class="fa fa-cog"></span></button></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <table id="example" class="display table table-striped table-bordered nowrap" style="width:100%">
+        <thead>
+            <tr>
+                <th class="small">
+                    <div class="mr-auto">Name</div><a class="toggle-vis" data-column="0"><span class="far fa-eye-slash"></span></a>
+                </th>
+                <th class="small">
+                    <div class="mr-auto">Position</div><a class="toggle-vis" data-column="1"><span class="far fa-eye-slash"></span></a>
+                </th>
+                <th class="small">
+                    <div class="mr-auto">Office</div><a class="toggle-vis" data-column="2"><span class="far fa-eye-slash"></span></a>
+                </th>
+                <th class="small">
+                    <div class="mr-auto">Age</div><a class="toggle-vis" data-column="3"><span class="far fa-eye-slash"></span></a>
+                </th>
+                <th class="small">
+                    <div class="mr-auto">Start date</div><a class="toggle-vis" data-column="4"><span class="far fa-eye-slash"></span></a>
+                </th>
+                <th class="small">
+                    <div class="mr-auto">Salary</div><a class="toggle-vis" data-column="5"><span class="far fa-eye-slash"></span></a>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="small">Tiger Nixon</td>
+                <td class="small">System Architect</td>
+                <td class="small">Edinburgh</td>
+                <td class="small">61</td>
+                <td class="small">2011/04/25</td>
+                <td class="small">$320,800</td>
+            </tr>
+            <tr>
+                <td class="small">Tiger Nixon</td>
+                <td class="small">System Architect</td>
+                <td class="small">Edinburgh</td>
+                <td class="small">61</td>
+                <td class="small">2011/04/25</td>
+                <td class="small">$320,800</td>
+            </tr>
+            <tr>
+                <td class="small">Tiger Nixon</td>
+                <td class="small">System Architect</td>
+                <td class="small">Edinburgh</td>
+                <td class="small">61</td>
+                <td class="small">2011/04/25</td>
+                <td class="small">$320,800</td>
+            </tr>
+            <tr>
+                <td class="small">Tiger Nixon</td>
+                <td class="small">System Architect</td>
+                <td class="small">Edinburgh</td>
+                <td class="small">61</td>
+                <td class="small">2011/04/25</td>
+                <td class="small">$320,800</td>
+            </tr>
+            <tr>
+                <td class="small">Tiger Nixon</td>
+                <td class="small">System Architect</td>
+                <td class="small">Edinburgh</td>
+                <td class="small">61</td>
+                <td class="small">2011/04/25</td>
+                <td class="small">$320,800</td>
+            </tr>
+            <tr>
+                <td class="small">Tiger Nixon</td>
+                <td class="small">System Architect</td>
+                <td class="small">Edinburgh</td>
+                <td class="small">61</td>
+                <td class="small">2011/04/25</td>
+                <td class="small">$320,800</td>
+            </tr>
+            <tr>
+                <td class="small">Tiger Nixon</td>
+                <td class="small">System Architect</td>
+                <td class="small">Edinburgh</td>
+                <td class="small">61</td>
+                <td class="small">2011/04/25</td>
+                <td class="small">$320,800</td>
+            </tr>
+            <tr>
+                <td class="small">Tiger Nixon</td>
+                <td class="small">System Architect</td>
+                <td class="small">Edinburgh</td>
+                <td class="small">61</td>
+                <td class="small">2011/04/25</td>
+                <td class="small">$320,800</td>
+            </tr>
+            <tr>
+                <td class="small">Tiger Nixon</td>
+                <td class="small">System Architect</td>
+                <td class="small">Edinburgh</td>
+                <td class="small">61</td>
+                <td class="small">2011/04/25</td>
+                <td class="small">$320,800</td>
+            </tr>
+            <tr>
+                <td class="small">Tiger Nixon</td>
+                <td class="small">System Architect</td>
+                <td class="small">Edinburgh</td>
+                <td class="small">61</td>
+                <td class="small">2011/04/25</td>
+                <td class="small">$320,800</td>
+            </tr>
+            <tr>
+                <td class="small">Tiger Nixon</td>
+                <td class="small">System Architect</td>
+                <td class="small">Edinburgh</td>
+                <td class="small">61</td>
+                <td class="small">2011/04/25</td>
+                <td class="small">$320,800</td>
+            </tr>
+            <tr>
+                <td class="small">Tiger Nixon</td>
+                <td class="small">System Architect</td>
+                <td class="small">Edinburgh</td>
+                <td class="small">61</td>
+                <td class="small">2011/04/25</td>
+                <td class="small">$320,800</td>
+            </tr>
+        </tbody>
+    </table>
+    <!--Body-->
+
+    <footer>
+        <nav class="navbar navbar-expand-sm bg-dark text-dark d-flex align-items-end">
+            <div class="container">
+                <!-- Brand -->
+                <a class="navbar-brand menu-open" href="#" title="Abrir módulos"><img src="../_img/logo.png" class="logo" alt=""></a>
+                <ul class="nav flex-column ml-auto mr-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" title="Acesse nosso Twitter"><span class="fab fa-twitter"></ span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" title="Acesse nosso Facebook"><span class="fab fa-facebook"></ span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" title="Acesse nosso GitHub"><span class="fab fa-github"></ span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" title="Acesse nosso LinkedIn"><span class="fab fa-linkedin"></ span></a>
+                    </li>
+                </ul>
+                <ul class="nav flex-column">
+                    <li class="nav-item text-center">
+                        <a class="nav-link" href="#"><i class="material-icons">call</i></a>
+                    </li>
+                    <li class="nav-item ">
+                        <p class="small text-center text-primary text-justify">(99) 99999-9999</p>
+                    </li>
+                    <li class="nav-item text-center">
+                        <a class="nav-link" href="#"><i class="material-icons">location_on</i></a>
+                    </li>
+                    <li class="nav-item ">
+                        <p class="small text-primary text-justify">
+                            Av. Independencia. nº 1101 . Centro - MG
+                        </p>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <div class="d-flex justify-content-center bg-primary text-dark d-flex align-items-end">
+            <p class="small mt-3 font-weight-ligh">Copyright@ 2008 - 2018</p>
+        </div>
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+    <script src="../_js/script.js"></script>
+    <script>
+        $(document).ready(function() {
+            var table = $('#example').DataTable({
+                scrollY: '50vh',
+                scrollCollapse: true,
+                paging: true
+            });
+
+            $('a.toggle-vis').on('click', function(e) {
+                e.preventDefault();
+
+                // Get the column API object
+                var column = table.column($(this).attr('data-column'));
+
+                // Toggle the visibility
+                column.visible(!column.visible());
+            });
+        });
+
+    </script>
+</body>
+
+</html>

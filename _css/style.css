@@ -11,7 +11,7 @@
     z-index: 999;
     transition: 0.5s;
     /* CSS transition speed */
-    width: 100px;
+    width: 120px;
     font: 20px "Courier New", Courier, monospace;
     box-sizing: border-box;
 }
@@ -73,6 +73,11 @@
     border-radius: 50%;
     object-fit: cover;
 }
-.bg-whiter{
+
+.bg-whiter {
     background-color: #ffffff;
+}
+
+.logo {
+    width: 200px;
 }

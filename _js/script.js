@@ -48,3 +48,7 @@ $(document).on('click', function (e) {
         });
     }
 });
+
+$(document).ready(function () {
+    $('[data-toggle="tooltip"]').tooltip();
+});
